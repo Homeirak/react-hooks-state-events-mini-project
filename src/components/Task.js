@@ -1,11 +1,16 @@
+// src/components/Task.js
 import React from "react";
 
-function Task() {
+function Task({ text, category, onDelete }) {
+  console.log(`Rendering Task: ${text} (${category})`);
+
   return (
-    <div className="task">
-      <div className="label">CATEGORY HERE</div>
-      <div className="text">TEXT HERE</div>
-      <button className="delete">X</button>
+    <div className="task" data-testid="task">
+      <span className="task-text" data-testid="task-text">{text}</span>
+      <span className="task-category" data-testid="task-category">{category}</span>
+      <button className="delete" data-testid="delete-button" onClick={() => onDelete(text)}>
+        X
+      </button>
     </div>
   );
 }
